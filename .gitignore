@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv
+venv/
+ENV/
+simulation_state.json
+*.xlsx
+node_modules/
+.vercel 

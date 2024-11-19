@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Add Modal for Capital Input -->
+    <div id="capitalModal" class="modal">
+        <div class="modal-content">
+            <h2>Set Initial Capital</h2>
+            <input type="number" id="initialCapital" value="300000" min="10000" step="10000">
+            <button onclick="setInitialCapital()">Start Trading</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Trading Bot Dashboard</h1>
+            <div class="button-group">
+                <button id="startSimulation" disabled>Start Simulation</button>
+                <button id="resetSimulation" class="reset-button">Reset Simulation</button>
+            </div>
+        </header>
+
+        <div class="metrics-container">
+            <div class="metric-card">
+                <h3>Total Trades</h3>
+                <p id="totalTrades">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Success Rate</h3>
+                <p id="successRate">0%</p>
+            </div>
+            <div class="metric-card">
+                <h3>Profit/Loss</h3>
+                <p id="profitLoss">₹0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Final Capital</h3>
+                <p id="finalCapital">₹0</p>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-box">
+                <h3>Capital Over Time</h3>
+                <canvas id="capitalChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Daily Profits</h3>
+                <canvas id="profitChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Trade Count</h3>
+                <canvas id="tradeCountChart"></canvas>
+            </div>
+        </div>
+
+        <div class="trades-container">
+            <h2>Recent Trades</h2>
+            <table id="tradesTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Stock</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html> 
